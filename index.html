@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Nexo's - CSE Hindi Memory Vault</title>
+    <title>The Nexo's - Live CSE Hindi Cloud Vault</title>
     <style>
         * {
             margin: 0;
@@ -144,13 +144,6 @@
             justify-content: center;
             font-size: 4rem;
             color: #66fcf1;
-            position: relative;
-        }
-
-        .profile-card img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
         }
 
         .profile-name {
@@ -164,23 +157,6 @@
             color: #66fcf1;
             font-weight: bold;
             letter-spacing: 1px;
-        }
-
-        .btn-download-avatar {
-            margin-top: 12px;
-            background: transparent;
-            border: 1px solid #66fcf1;
-            color: #66fcf1;
-            padding: 5px 12px;
-            font-size: 0.8rem;
-            border-radius: 15px;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-
-        .btn-download-avatar:hover {
-            background: #66fcf1;
-            color: #0b0c10;
         }
 
         /* Protected Upload Module Box */
@@ -303,10 +279,10 @@
             font-size: 0.8rem;
             border-radius: 4px;
             cursor: pointer;
-            display: none; /* Hidden unless logged in */
+            display: none; 
         }
 
-        /* Modal Authentication Overlay overlay views */
+        /* Modal Authentication Overlay */
         .modal {
             position: fixed;
             top: 0;
@@ -348,8 +324,6 @@
             color: #c5c6c7;
         }
 
-        .close-modal:hover { color: white; }
-
         .welcome-badge {
             background: #1f2833;
             border: 1px solid #66fcf1;
@@ -363,7 +337,6 @@
 </head>
 <body>
 
-    <!-- Header Navigation -->
     <nav>
         <div class="logo-area">
             <div class="logo-icon">N</div>
@@ -372,82 +345,61 @@
         <div class="nav-links">
             <a onclick="scrollToSection('about')">Our Team</a>
             <a onclick="scrollToSection('gallery')">Memory Stream</a>
-            <span class="welcome-badge" id="welcomeUser">Welcome, Shivam!</span>
+            <span class="welcome-badge" id="welcomeUser">Welcome</span>
             <button class="btn-auth" id="authBtn" onclick="toggleAuthModal()">Admin Login</button>
         </div>
     </nav>
 
-    <!-- Main Container Layout -->
     <div class="container">
         
-        <!-- About Us Profiles Matrix Section -->
         <div id="about">
             <h2 class="section-title">The Four Roommates (CSE Hindi)</h2>
             <div class="about-grid">
-                <!-- Shivam Card -->
                 <div class="profile-card">
-                    <div class="avatar-box">
-                        <span id="avatar-preview-shivam">👦</span>
-                    </div>
+                    <div class="avatar-box">👨‍💻</div>
                     <h3 class="profile-name">Shivam</h3>
-                    <p class="profile-role">CSE (Hindi) Third Year</p>
-                    <button class="btn-download-avatar" onclick="downloadDummyAvatar('Shivam')">Download Card</button>
+                    <p class="profile-role">Third Year</p>
                 </div>
-                <!-- Satyam Card -->
                 <div class="profile-card">
-                    <div class="avatar-box">
-                        <span id="avatar-preview-satyam">👦</span>
-                    </div>
+                    <div class="avatar-box">👨‍💻</div>
                     <h3 class="profile-name">Satyam</h3>
-                    <p class="profile-role">CSE (Hindi) Third Year</p>
-                    <button class="btn-download-avatar" onclick="downloadDummyAvatar('Satyam')">Download Card</button>
+                    <p class="profile-role">Third Year</p>
                 </div>
-                <!-- Krish Card -->
                 <div class="profile-card">
-                    <div class="avatar-box">
-                        <span id="avatar-preview-krish">👦</span>
-                    </div>
+                    <div class="avatar-box">👨‍💻</div>
                     <h3 class="profile-name">Krish</h3>
-                    <p class="profile-role">CSE (Hindi) Third Year</p>
-                    <button class="btn-download-avatar" onclick="downloadDummyAvatar('Krish')">Download Card</button>
+                    <p class="profile-role">Third Year</p>
                 </div>
-                <!-- Aryan Card -->
                 <div class="profile-card">
-                    <div class="avatar-box">
-                        <span id="avatar-preview-aryan">👦</span>
-                    </div>
+                    <div class="avatar-box">👨‍💻</div>
                     <h3 class="profile-name">Aryan</h3>
-                    <p class="profile-role">CSE (Hindi) Third Year</p>
-                    <button class="btn-download-avatar" onclick="downloadDummyAvatar('Aryan')">Download Card</button>
+                    <p class="profile-role">Third Year</p>
                 </div>
             </div>
         </div>
 
-        <!-- Protected Memory Creator Module Block -->
         <div class="upload-card" id="uploadModule">
-            <h3 style="margin-bottom: 20px; color: #45f3ff;">✨ LOG NEW COLLEGE LIFE MEMORY</h3>
+            <h3 style="margin-bottom: 20px; color: #45f3ff;">✨ LOG NEW MEMORY TO CLOUD DATABASE</h3>
             <div class="form-group">
-                <label>Select Memory Image or Video clip</label>
+                <label>Select Memory Image or Video clip (Max 10MB recommended)</label>
                 <input type="file" class="form-control" id="mediaFile" accept="image/*,video/*">
             </div>
             <div class="form-group">
                 <label>Memory Description (Where was this? What happened?)</label>
                 <textarea class="form-control" id="mediaDesc" rows="3" placeholder="Write down the back story..."></textarea>
             </div>
-            <button class="btn-auth" style="width:100%; margin-top:10px;" onclick="saveNewMemory()">Post to Memory Vault</button>
+            <button class="btn-auth" id="uploadSubmitBtn" style="width:100%; margin-top:10px;" onclick="saveNewMemory()">Post to Live Cloud Vault</button>
         </div>
 
-        <!-- Memory Display Feed Gallery Grid -->
         <div id="gallery" style="margin-top: 40px;">
-            <h2 class="section-title">The Nexo Memory Stream</h2>
+            <h2 class="section-title">The Nexo Live Memory Stream</h2>
             <div class="gallery-grid" id="galleryContainer">
-                <!-- Uploaded posts inject here directly -->
+                <div style="grid-column:1/-1; text-align:center; padding:40px; color:#c5c6c7;">Connecting to cloud stream database...</div>
             </div>
         </div>
 
     </div>
 
-    <!-- Security Login Modal Frame -->
     <div class="modal" id="authModal">
         <div class="modal-content">
             <span class="close-modal" onclick="toggleAuthModal()">&times;</span>
@@ -465,15 +417,15 @@
     </div>
 
     <script>
-        // System Configs Constants Definitions
+        // REPLACE THE STRING BELOW WITH YOUR COPIED FIREBASE DATABASE URL
+        const FIREBASE_DB_URL = "YOUR_FIREBASE_DATABASE_URL_HERE";
+
         const VAULT_KEY = "NexoHostel3rdYear";
         const ALLOWED_USERS = ["shivam", "satyam", "krish", "aryan"];
 
-        // Global Active Auth Tracker session state
         let activeSessionUser = null;
         let memoriesDatabase = [];
 
-        // Smooth scroll implementation helper
         function scrollToSection(id) {
             document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
         }
@@ -481,14 +433,16 @@
         function toggleAuthModal() {
             const modal = document.getElementById('authModal');
             if(activeSessionUser) {
-                // If already logged in, button behaves as a Logout action
                 logOutSession();
             } else {
                 modal.classList.toggle('active');
             }
         }
 
-        // Login Handler validation
+        document.querySelector('.close-modal').addEventListener('click', () => {
+            document.getElementById('authModal').classList.remove('active');
+        });
+
         function attemptLogin() {
             const userIn = document.getElementById('usernameInput').value.trim().toLowerCase();
             const passIn = document.getElementById('passwordInput').value.trim();
@@ -497,7 +451,6 @@
                 activeSessionUser = userIn;
                 document.getElementById('authModal').classList.remove('active');
                 
-                // Transform UI layout context elements to reveal hidden creator panels
                 document.getElementById('uploadModule').style.display = 'block';
                 document.getElementById('welcomeUser').innerText = `Admin: ${userIn.toUpperCase()}`;
                 document.getElementById('welcomeUser').style.display = 'inline-block';
@@ -505,14 +458,12 @@
                 document.getElementById('authBtn').style.backgroundColor = "#e94560";
                 document.getElementById('authBtn').style.color = "white";
 
-                // Clear input cells
                 document.getElementById('usernameInput').value = "";
                 document.getElementById('passwordInput').value = "";
 
                 renderMemoriesStream();
-                alert(`🔓 Access Granted! Welcome back ${userIn.toUpperCase()}. You can now upload and delete items.`);
             } else {
-                alert("❌ Verification Failed! Only the 4 authorized Nexo members can log in with the correct master password.");
+                alert("❌ Access Denied! Only Nexo group members can login.");
             }
         }
 
@@ -524,18 +475,48 @@
             document.getElementById('authBtn').style.backgroundColor = "#45f3ff";
             document.getElementById('authBtn').style.color = "#0b0c10";
             renderMemoriesStream();
-            alert("🔒 Logged out successfully. Deletion and Upload actions locked down.");
         }
 
-        // Process File Data Storage internally using Base64 conversions strings
+        // Fetch Live Memory Data from Cloud Database
+        function fetchCloudMemories() {
+            if(FIREBASE_DB_URL === "YOUR_FIREBASE_DATABASE_URL_HERE") {
+                document.getElementById('galleryContainer').innerHTML = `<div style="grid-column:1/-1; text-align:center; padding:40px; color:#ff4757; border:1px dashed #ff4757; border-radius:10px;">⚠️ <strong>Setup Required:</strong> Please open this HTML file in a text editor and add your Firebase Realtime Database URL on line 302!</div>`;
+                return;
+            }
+
+            fetch(`${FIREBASE_DB_URL}/memories.json`)
+                .then(res => res.json())
+                .then(data => {
+                    memoriesDatabase = [];
+                    if (data) {
+                        // Firebase keys map to unique IDs, convert object layout to array
+                        Object.keys(data).forEach(key => {
+                            memoriesDatabase.push({ firebaseKey: key, ...data[key] });
+                        });
+                        // Sort memories so newest displays first
+                        memoriesDatabase.sort((a, b) => b.id - a.id);
+                    }
+                    renderMemoriesStream();
+                })
+                .catch(err => {
+                    console.error("Database connection error: ", err);
+                    document.getElementById('galleryContainer').innerHTML = `<div style="grid-column:1/-1; text-align:center; padding:40px; color:#e94560;">Error syncing with cloud database. Checking connection...</div>`;
+                });
+        }
+
+        // Write New Memory to Cloud Database
         function saveNewMemory() {
             const fileInput = document.getElementById('mediaFile');
             const descInput = document.getElementById('mediaDesc');
+            const submitBtn = document.getElementById('uploadSubmitBtn');
 
             if (!fileInput.files || fileInput.files.length === 0) {
-                alert("Please attach a memory image or video clip first!");
+                alert("Please select an image or video first!");
                 return;
             }
+
+            submitBtn.innerText = "Uploading to Cloud Database...";
+            submitBtn.disabled = true;
 
             const activeFile = fileInput.files[0];
             const reader = new FileReader();
@@ -544,41 +525,61 @@
                 const base64Data = event.target.result;
                 const rightNow = new Date();
                 
-                // Formulate clear Hindi region friendly timestamp logs strings
                 const timeString = rightNow.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
                 const dateString = rightNow.toLocaleDateString([], { day: '2-digit', month: 'short', year: 'numeric' });
-                const formattedTimestamp = `${dateString} @ ${timeString}`;
 
-                const memoryObject = {
+                const newPost = {
                     id: Date.now(),
                     author: activeSessionUser.toUpperCase(),
-                    timestamp: formattedTimestamp,
+                    timestamp: `${dateString} @ ${timeString}`,
                     description: descInput.value.trim() || "No description provided.",
                     mediaType: activeFile.type.startsWith('video') ? 'video' : 'image',
                     mediaSrc: base64Data
                 };
 
-                memoriesDatabase.unshift(memoryObject);
-                localStorage.setItem('nexos_memories_vault', JSON.stringify(memoriesDatabase));
-                
-                // Clear inputs blocks
-                fileInput.value = "";
-                descInput.value = "";
-                
-                renderMemoriesStream();
-                alert("🎉 Memory locked into vault successfully!");
+                // AJAX HTTP POST directly into the cloud JSON nodes matrix
+                fetch(`${FIREBASE_DB_URL}/memories.json`, {
+                    method: 'POST',
+                    body: JSON.stringify(newPost),
+                    headers: { 'Content-Type': 'application/json' }
+                })
+                .then(() => {
+                    fileInput.value = "";
+                    descInput.value = "";
+                    submitBtn.innerText = "Post to Live Cloud Vault";
+                    submitBtn.disabled = false;
+                    fetchCloudMemories(); // Refresh UI instantly
+                    alert("🎉 Uploaded! This memory is now visible to all roommates across all devices!");
+                })
+                .catch(err => {
+                    alert("Cloud sync failure. Try uploading a lower-resolution file.");
+                    submitBtn.innerText = "Post to Live Cloud Vault";
+                    submitBtn.disabled = false;
+                });
             };
 
             reader.readAsDataURL(activeFile);
         }
 
-        // Display items
+        function deleteMemoryEntry(firebaseKey) {
+            if(!activeSessionUser) return;
+            if(confirm("Are you sure you want to permanently delete this memory across all roommates' devices?")) {
+                fetch(`${FIREBASE_DB_URL}/memories/${firebaseKey}.json`, {
+                    method: 'DELETE'
+                })
+                .then(() => {
+                    fetchCloudMemories(); // Refresh live view layout mapping structures
+                })
+                .catch(err => alert("Error communicating deletion command to server."));
+            }
+        }
+
         function renderMemoriesStream() {
             const streamBox = document.getElementById('galleryContainer');
             streamBox.innerHTML = '';
 
             if(memoriesDatabase.length === 0) {
-                streamBox.innerHTML = `<div style="grid-column:1/-1; text-align:center; padding:40px; color:#c5c6c7;">The stream is empty. Log in above to record your very first third year memory!</div>`;
+                streamBox.innerHTML = `<div style="grid-column:1/-1; text-align:center; padding:40px; color:#c5c6c7;">The vault stream is currently empty. Login to add the very first shared college memory!</div>`;
                 return;
             }
 
@@ -599,8 +600,8 @@
                             <span class="item-author">Logged by: ${item.author}</span>
                             <p class="item-desc">${item.description}</p>
                             <div class="item-actions">
-                                <a href="${item.mediaSrc}" download="nexos-memory-${item.id}" class="btn-download">⬇️ Download File</a>
-                                <button class="btn-delete" style="display: ${deleteButtonVisibility}" onclick="deleteMemoryEntry(${item.id})">Delete</button>
+                                <a href="${item.mediaSrc}" download="nexos-cloud-memory" class="btn-download">⬇️ Download Card</a>
+                                <button class="btn-delete" style="display: ${deleteButtonVisibility}" onclick="deleteMemoryEntry('${item.firebaseKey}')">Delete</button>
                             </div>
                         </div>
                     </div>
@@ -609,31 +610,10 @@
             });
         }
 
-        function deleteMemoryEntry(id) {
-            if(!activeSessionUser) return;
-            if(confirm("Are you sure you want to permanently erase this memory card from the website file logs?")) {
-                memoriesDatabase = memoriesDatabase.filter(m => m.id !== id);
-                localStorage.setItem('nexos_memories_vault', JSON.stringify(memoriesDatabase));
-                renderMemoriesStream();
-            }
-        }
-
-        // Helper fallback item to download mock profile identity cards
-        function downloadDummyAvatar(name) {
-            const dataUrl = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 100 100"><rect width="100" height="100" fill="%231f2833"/><text x="50" y="55" font-size="12" fill="%2366fcf1" font-weight="bold" font-family="sans-serif" text-anchor="middle">' + name + ' (Nexo)</text></svg>';
-            const link = document.createElement('a');
-            link.href = dataUrl;
-            link.download = `${name}-NexoProfile.svg`;
-            link.click();
-        }
-
-        // Boot Init Startup configurations checking for existing local memory blocks
+        // Poll Cloud Database connection loops every 7 seconds to keep multiple devices synced automatically
         window.onload = function() {
-            const storedData = localStorage.getItem('nexos_memories_vault');
-            if(storedData) {
-                memoriesDatabase = JSON.parse(storedData);
-            }
-            renderMemoriesStream();
+            fetchCloudMemories();
+            setInterval(fetchCloudMemories, 7000);
         };
     </script>
 </body>
